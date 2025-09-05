@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "backend.Controllers.BillsController",
+    "Method": "GetBills",
+    "RelativePath": "api/Bills",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
