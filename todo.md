@@ -30,19 +30,25 @@
 ### Frontend Setup
 
 -   [] Install Tailwind CSS
+
 -   [] Configure tailwind.config.js
+
 -   [] Import Tailwind in index.css
 
 ### Create Bills Components
 
 -   [] Create src/components/Bills/BillsList.jsx
+
 -   [] Create src/components/Bills/BillForm.jsx
+
 -   [] Ensure components render correctly in App.jsx
 
 ### Connect Frontend → Backend
 
 -   [] Test GET request to /api/bills
+
 -   [] Display bills in BillsList component
+
 -   [] Handle API errors and loading state
 
 ### Add CRUD Functionality
