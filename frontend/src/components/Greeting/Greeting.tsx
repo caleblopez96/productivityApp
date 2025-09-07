@@ -17,8 +17,8 @@ export function Greeting({ name }: GreetingProps) {
     return (
         <div className="flex gap-4 items-center">
             <img src={man} alt="Greeting" className="h-[64px] w-[64px] rounded-full" />
-            <h2 className="text-left text-purple-600 font-normal">
-                Happy {dayOfTheWeek}, <span className="font-semibold">{name}</span>!
+            <h2 className="text-left text-purple-600 font-semibold text-lg">
+                Happy {dayOfTheWeek}, <span className="font-bold">{name}</span>!
             </h2>
         </div>
     );

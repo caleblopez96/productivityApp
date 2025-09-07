@@ -1,15 +1,17 @@
 import { Nav } from "../Nav/Nav";
 import { Greeting } from "../Greeting/Greeting";
 import { TaskNotification } from "../TaskNotification/TaskNotification";
+import { TaskComp } from "../TaskComp/TaskComp";
 
 export function Dashboard() {
     return (
         <div className="grid grid-cols-[30%_70%] gap-2 bg-gray-100 rounded-4xl box-border h-full w-full overflow-hidden">
             {/* Column 1 */}
-            <div className="grid grid-cols-1 grid-rows-6 bg-white p-12 rounded-4xl overflow-hidden">
+            <div className="grid grid-cols-1 grid-rows-6 gap-10 bg-white p-8 rounded-4xl overflow-hidden">
                 <Nav />
                 <Greeting name="Caleb" />
                 <TaskNotification tasks="5" />
+                <TaskComp />
 
                 {/* Spacer to push content up naturally */}
                 <div className="flex-1"></div>
