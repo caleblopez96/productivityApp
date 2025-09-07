@@ -1,33 +1,35 @@
-import { useState } from "react";
-import type { Bill } from "../../types/Bill";
-import { BillsList } from "../Bills/BillsList";
+import { Nav } from "../Nav/Nav";
+import { Greeting } from "../Greeting/Greeting";
+import { TaskNotification } from "../TaskNotification/TaskNotification";
 
 export function Dashboard() {
-    const [bills, setBills] = useState<Bill[]>([
-        { id: "1", name: "Rent", amount: 1200, dueDate: "2025-09-06", isPaid: false },
-        { id: "2", name: "Electricity", amount: 150, dueDate: "2025-09-10", isPaid: false },
-    ]);
-
     return (
-        <div className="grid grid-cols-2 grid-rows-2 gap-4 p-4">
-            <div className="border p-2">
-                <h2 className="font-bold mb-2">Bills</h2>
-                <BillsList bills={bills} />
+        <div className="grid grid-cols-[30%_70%] gap-2 bg-gray-100 rounded-4xl box-border h-full w-full overflow-hidden">
+            {/* Column 1 */}
+            <div className="grid grid-cols-1 grid-rows-6 bg-white p-12 rounded-4xl overflow-hidden">
+                <Nav />
+                <Greeting name="Caleb" />
+                <TaskNotification tasks="5" />
+
+                {/* Spacer to push content up naturally */}
+                <div className="flex-1"></div>
+
+                <div className="text-sm text-gray-600 p-2">Column 1 - Widget 2</div>
             </div>
 
-            <div className="border p-2">
-                <h2 className="font-bold mb-2">Homework</h2>
-                <div>Homework List Placeholder</div>
-            </div>
+            {/* Column 2 */}
+            <div className="grid grid-cols-3 grid-rows-3 gap-2 border-2 border-green-500 p-10 box-border overflow-hidden">
+                {/* Row 1: */}
+                <div className="col-span-3 border border-yellow-500 flex items-center justify-center text-sm">weather widget</div>
 
-            <div className="border p-2">
-                <h2 className="font-bold mb-2">Schedule</h2>
-                <div>Schedule List Placeholder</div>
-            </div>
+                {/* Row 2:*/}
+                <div className="col-span-2 border border-purple-500 flex items-center justify-center text-sm">chart</div>
+                <div className="col-span-1 border border-pink-500 flex items-center justify-center text-sm">clock</div>
 
-            <div className="border p-2">
-                <h2 className="font-bold mb-2">Reminders</h2>
-                <div>Reminder List Placeholder</div>
+                {/* Row 3:*/}
+                <div className="border border-orange-500 flex items-center justify-center text-sm">events</div>
+                <div className="border border-blue-500 flex items-center justify-center text-sm">news</div>
+                <div className="border border-teal-500 flex items-center justify-center text-sm">weather</div>
             </div>
         </div>
     );
