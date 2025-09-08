@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Dashboard } from "./components/Dashboard/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 import "./App.css";
 
 function App() {
