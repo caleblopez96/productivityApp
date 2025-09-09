@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Plus, Check, X, Calendar, Clock, TrendingUp, User, Settings, Home, Bell } from "lucide-react";
+import WeatherWidget from "../Weather/WeatherWidget";
 
 export const ProductivityApp = () => {
     const [tasks, setTasks] = useState([
@@ -209,43 +210,11 @@ export const ProductivityApp = () => {
                     </div>
                 </div>
 
-                {/* Main Content */}
+                {/* main content */}
                 <div className="lg:col-span-2 space-y-6">
-                    {/* Weather Header */}
-                    <div className="bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 rounded-3xl p-8 text-white relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-20 rounded-full -mr-16 -mt-16"></div>
-                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-10 rounded-full -ml-12 -mb-12"></div>
+                    <WeatherWidget />
 
-                        <div className="flex justify-between items-start">
-                            <div>
-                                <h1 className="text-4xl font-bold mb-2">New York</h1>
-                                <p className="text-lg opacity-90">3rd, thu</p>
-                            </div>
-                            <div className="text-right">
-                                <div className="flex items-center space-x-2 mb-2">
-                                    <span className="text-sm opacity-75">Yesterday</span>
-                                </div>
-                                <div className="text-6xl font-light mb-2">+25°</div>
-                                <p className="opacity-90">partially cloudy</p>
-                                <div className="mt-4 space-y-1 text-sm">
-                                    <div className="flex items-center space-x-2">
-                                        <span className="opacity-75">Today</span>
-                                    </div>
-                                    <div className="flex items-center space-x-2">
-                                        <span className="opacity-75">Tomorrow</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="absolute top-1/2 right-1/4 transform -translate-y-1/2">
-                            <div className="w-20 h-20 bg-white opacity-90 rounded-full flex items-center justify-center">
-                                <div className="w-16 h-16 bg-yellow-300 rounded-full"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Statistics */}
+                    {/* stats */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div className="bg-white rounded-2xl p-6 shadow-lg">
                             <div className="flex items-center justify-between mb-4">
@@ -275,7 +244,8 @@ export const ProductivityApp = () => {
                         </div>
                     </div>
 
-                    {/* Chart Placeholder */}
+                    {/* chart placeholder*/}
+                    {/* gonna use best chart lib  */}
                     <div className="bg-white rounded-2xl p-6 shadow-lg">
                         <h3 className="font-bold text-gray-900 mb-6">Activity Overview</h3>
                         <div className="h-64 bg-gradient-to-r from-orange-100 to-orange-200 rounded-xl flex items-center justify-center relative overflow-hidden">
@@ -347,7 +317,7 @@ export const ProductivityApp = () => {
                         </div>
                     </div>
 
-                    {/* Calendar Widget */}
+                    {/* calendar */}
                     <div className="bg-white rounded-2xl p-6 shadow-lg">
                         <div className="flex justify-between items-center mb-6">
                             <h3 className="font-bold text-gray-900">February</h3>
@@ -363,7 +333,7 @@ export const ProductivityApp = () => {
                                 </div>
                             ))}
                             {Array.from({ length: 35 }, (_, i) => {
-                                const day = i - 2; // Adjust for month start
+                                const day = i - 2;
                                 const isToday = day === 3;
                                 const hasEvent = [1, 6, 7].includes(day);
 
