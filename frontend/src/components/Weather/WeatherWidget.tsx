@@ -9,16 +9,20 @@ const WeatherWidget = () => {
     useEffect(() => {
         const fetchWeather = async () => {
             try {
-                const API_KEY = import.meta.env.VITE_API_KEY;
-                const response = await fetch(
-                    `https://api.openweathermap.org/data/2.5/weather?q=Phoenix,AZ&appid=${API_KEY}&units=imperial`
-                );
+                const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+                const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Phoenix,AZ&aqi=no`);
                 const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(`API Error: ${response.status}`);
+                }
+
                 setWeather({
-                    location: data.name,
-                    temperature: Math.round(data.main.temp).toString(),
+                    location: data.location.name || "Phoenix",
+                    temperature: Math.round(data.current.temp_f || 75).toString(),
                 });
-            } catch {
+            } catch (error) {
+                console.error("Weather fetch failed:", error);
                 setWeather({ location: "Phoenix, AZ", temperature: "75" });
             }
         };
